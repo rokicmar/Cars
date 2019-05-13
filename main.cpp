@@ -3,21 +3,26 @@
 #include "HybridCar.hpp"
 #include <iostream>
 
+
+
+
 int main()
 {
     Car* car;
-    PetrolEngine* eng = new PetrolEngine(120, 1800, 6)
+    PetrolEngine* eng = new PetrolEngine(120, 1800, 6);
     std::cout << std::endl << "OPEL" << std::endl;
     PetrolCar opel(eng);
     car = &opel;
     car->accelerate(50);
     car->brake();
     car->accelerate(-900);
+    car->changeGear(4);
+    car->changeGear(-1);
     //dynamic_cast<PetrolCar*>(car)->refuel();
     car->feed();
 
-    std::cout << std::endl << "NISSAN" << std::endl;
     ElectricCar nissan(new ElectricEngine(130, 650));
+    std::cout << std::endl << "NISSAN" << std::endl;
     car = &nissan;
     car->feed();
     car->accelerate(80);

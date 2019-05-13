@@ -2,7 +2,8 @@
 #include <iostream>
 
 PetrolCar::PetrolCar(PetrolEngine *engine)
-        : engine_(engine) {
+: engine_(engine)
+{
     std::cout << __FUNCTION__ << std::endl;
 }
 
@@ -16,4 +17,8 @@ void PetrolCar::setEngine(Engine *e) {
     engine_ = dynamic_cast<PetrolEngine*>(e);
 }
 
+void PetrolCar::changeGear(int gear)
+{
+    engine_->changeGear(gear);
+}
 

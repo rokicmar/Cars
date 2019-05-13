@@ -1,6 +1,12 @@
 #pragma once
 
 #include "Engine.h"
+#include <stdexcept>
+
+struct InvalidGear : std::exception
+{
+    using std::exception::exception;
+};
 
 class PetrolEngine : public Engine
 {

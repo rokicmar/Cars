@@ -4,6 +4,7 @@
 HybridCar::HybridCar(PetrolEngine* petrolEng, ElectricEngine* electricEng)
     : PetrolCar(petrolEng)
     , ElectricCar(electricEng)
+    , engine_(petrolEng)
 {
     std::cout << __FUNCTION__ << std::endl;
 }
@@ -17,4 +18,9 @@ void HybridCar::feed() {
 
 void HybridCar::setEngine(Engine *) {
 
+}
+
+void HybridCar::changeGear(int gear)
+{
+    engine_->changeGear(gear);
 }

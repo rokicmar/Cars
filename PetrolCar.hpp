@@ -10,6 +10,7 @@ public:
     void refuel();
     void setEngine(Engine* e);
     void feed();
+    void changeGear(int gear);
 
 private:
     PetrolEngine* engine_;

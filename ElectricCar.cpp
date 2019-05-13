@@ -16,3 +16,7 @@ void ElectricCar::setEngine(Engine *e) {
     engine_ = dynamic_cast<ElectricEngine*>(e);
 }
 
+void ElectricCar::changeGear(int gear)
+{
+}
+

@@ -1,5 +1,6 @@
 #include "PetrolEngine.hpp"
 #include <iostream>
+#include <algorithm>
 
 PetrolEngine::PetrolEngine(int power, float capacity, int gears)
     : power_(power)
@@ -12,9 +13,17 @@ PetrolEngine::PetrolEngine(int power, float capacity, int gears)
 
 void PetrolEngine::changeGear(int gear)
 {
-    // TODO: Add checking if gear is between -1 and gears_
-    // -1 is for REAR
-    // 0 is for NEUTRAL
-    currentGear_ = gear;
-    std::cout << __FUNCTION__ << std::endl;
+    try {
+        if (currentGear_ > 0 && gear == -1)
+        {
+            throw InvalidGear();
+        }
+
+        std::cout << __FUNCTION__ << "OK" << std::endl;
+        currentGear_ = gear;
+    }
+    catch (InvalidGear &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
